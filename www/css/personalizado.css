@@ -1,0 +1,39 @@
+.toolbar{
+    height: 80px;
+    background-color: #073261;
+    position: fixed;
+
+}
+
+.tab-link{
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.toolbar-inner .link{    
+    flex:1;
+    height: 80px;  
+    line-height: 25px; 
+	font-weight:bold;    
+}
+
+.toolbar-inner .link:not(.active) {
+    color:black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Estilos para o link ativo */
+.toolbar-inner .link.active {
+    color: white; /* Define a cor do texto como branco */
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.toolbar-inner > .link i{
+    font-size: 28px;
+}

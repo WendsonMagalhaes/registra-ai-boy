@@ -1,0 +1,572 @@
+/* Estilos para a página de busca de contrato */
+
+.page-content {
+    display: block; /* Altere de flex para block */
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: auto; /* Adiciona a barra de rolagem quando necessário */
+    padding: 5px; /* Adicione algum preenchimento se necessário */
+}
+h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #073261;
+}
+.block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 95%;
+    max-width: 600px;
+    overflow: auto; /* Adiciona a barra de rolagem quando necessário */
+    margin: 120px auto; /* Centraliza o bloco horizontalmente */
+
+}
+#block-painel-registrados{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    overflow: auto; /* Adiciona a barra de rolagem quando necessário */
+    margin: 120px auto; /* Centraliza o bloco horizontalmente */
+}
+.title{
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 24px;
+}
+
+h2{
+ 
+    color: #073261;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+
+}
+#block-registrados {
+  
+    margin-top: -100px;
+}
+
+#h2-registrados-buscar{
+    margin-right: 150px;
+
+}
+#h2-registrados-registrados{
+    margin-right: 80px;
+}
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #073261;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: calc(100% - 120px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 2px solid #073261;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.navbar-bg{
+    background-color: #073261;
+    color: #fff;
+    font-weight:bold;    
+
+}
+
+.view{
+    overflow: auto; /* Adiciona a barra de rolagem quando necessário */
+ 
+}
+.container-buscar-contrato {
+    display: grid;
+    grid-template-columns: 40% 30%; /* Define duas colunas de 30% cada */
+    gap: 10%; /* Espaçamento entre as colunas, opcional */
+    justify-content: center; /* Centraliza as colunas horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+
+}
+
+#contractNumber, #searchButton, #contractNumberRegistrados {
+    width: 100%; /* Necessário para garantir que os elementos preencham suas colunas */
+}
+#searchButton {
+    height: 70%; /* Necessário para garantir que os elementos preencham suas colunas */
+    margin-top: -18px;
+    border-radius: 10px;
+}
+.container-contrato {
+    display: grid;
+    grid-template-columns: 10% 20% 10% 20%; /* Define duas colunas de 30% cada */
+    gap: 20px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -15px; /* Adiciona uma margem à esquerda */
+
+
+}
+
+#label-contrato, #input-contrato, #label-nome, #input-nome {
+    width: 100%; /* Necessário para garantir que os elementos preencham suas colunas */
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.container-nome {
+    display: grid;
+    grid-template-columns: 8% 90%; /* Define duas colunas de 30% cada */
+    gap: 20px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -15px; /* Adiciona uma margem à esquerda */
+    margin-top: -10px;
+
+}
+.container-endereco {
+    display: grid;
+    grid-template-columns: 8% 90%; /* Define duas colunas de 30% cada */
+    gap: 20px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -15px; /* Adiciona uma margem à esquerda */
+    margin-top: -10px;
+
+}
+
+
+#label-endereco, #input-endereco, #label-bairro, #input-bairro {
+    width: 100%; /* Necessário para garantir que os elementos preencham suas colunas */
+}
+.container-forma-de-pagamento {
+    display: grid;
+    grid-template-columns: 18% 5% 18% 15% 18% 15%; /* Define duas colunas de 30% cada */
+    gap: 10px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -5px; /* Adiciona uma margem à esquerda */
+    margin-top: -10px;
+
+
+}
+
+#label-forma-de-pagamento, #input-forma-de-pagamento, #label-data-ativacao, #input-data-ativacao {
+    width: 100%; /* Necessário para garantir que os elementos preencham suas colunas */
+}
+
+.container-debito {
+    display: grid;
+    grid-template-columns: 28% 10% 25% 30%; /* Define duas colunas de 30% cada */
+    gap: 10px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -5px; /* Adiciona uma margem à esquerda */
+    margin-top: -10px;
+
+
+}
+.container-bairro {
+    display: grid;
+    grid-template-columns: 10% 40% 10% 30%; /* Define duas colunas de 30% cada */
+    gap: 10px; /* Espaçamento entre as colunas, opcional */
+    justify-content: start; /* Alinha as colunas à esquerda */
+    margin-left: -5px; /* Adiciona uma margem à esquerda */
+    margin-top: -10px;
+
+
+}
+
+#label-total-parcelas, #input-total-parcelas, #label-otal-debito, #input-otal-debito {
+    width: 100%; /* Necessário para garantir que os elementos preencham suas colunas */
+}
+.rounded-div {
+    width: auto;
+    height: 2px;
+    background-color: #f0f0f0;
+    border: 2px solid #073261;
+    border-radius: 10px; /* Aqui você define o arredondamento das bordas */
+    padding: 15px;
+    text-align: center;
+    margin-left: -50px;
+    margin-top: 38px;
+    display: flex; /* Define o contêiner como um contêiner flexível */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #073261;
+}
+
+.user-info {
+    display: flex; /* Para alinhar o nome do usuário e o ícone na mesma linha */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    justify-content: end; /* Alinha as colunas à esquerda */
+    padding: 20px;
+    font-size: 10px; /* Tamanho do ícone */
+    margin-top: 10px;
+    margin-left: -20px;
+
+
+  }
+  
+  .user-info .username {
+    margin-left: 5px; /* Espaçamento entre o nome do usuário e o ícone */
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  #icone-user {
+    font-size: 22px; /* Tamanho do ícone */
+    color: #fff; /* Cor do ícone */
+  }
+  #output-total-parcelas, #output-total-debito{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card {
+    /* Um tom de azul claro */
+    background-color: #073261;
+    border: 1px solid #073261;  /* Azul mais escuro para o contorno */
+    border-radius: 8px;
+    padding: 16px;
+    margin: 4px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    width: calc(50% - 16px); /* Para tornar o card responsivo, definimos a largura como 50% da largura do contêiner pai, com 16px de margem em cada lado */
+    box-sizing: border-box; /* Para incluir a largura da borda no cálculo da largura total */
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.card.red {
+    background-color: red;
+    color: white;
+    border: 1px solid red; 
+
+  }
+  
+  .card.navi-blue {
+    background-color: #073261;
+    color: white;
+    border: 1px solid #073261; 
+  }
+.username::first-letter {
+    text-transform: uppercase;
+  
+}
+
+.card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.card.selected {
+    background-color: #1565c0; /* Um tom de azul mais escuro para cartões selecionados */
+    border: 1px solid #1565c0;  /* Azul mais escuro para o contorno */
+
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Para espaçar uniformemente os cartões horizontalmente */
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    width: 100%; /* Certifica-se de que a entrada e os botões estejam na largura total */
+    display: flex;
+    justify-content: space-between; /* Para espaçar uniformemente os elementos de entrada e os botões */
+}
+
+.input-container input {
+    width: calc(50% - 8px); /* Divide a largura da entrada ao meio com 8px de margem */
+    box-sizing: border-box;
+}
+
+.input-container button {
+    width: calc(50% - 8px); /* Divide a largura do botão ao meio com 8px de margem */
+    box-sizing: border-box;
+}
+@media (min-width: 768px) { /* Quando a largura da tela for maior ou igual a 768px (tamanho de tela médio) */
+    .card {
+        width: calc(25% - 4px); /* Para telas maiores, os cartões ocupam 25% da largura do contêiner pai, com 16px de margem em cada lado */
+    }
+    .title{
+        justify-self: start;
+    }
+}
+
+.custom-message {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    border: 2px solid #073261;  /* Azul mais escuro para o contorno */
+    font-weight: bold;
+    font-size: 18px;
+
+  }
+  
+
+.close-button {
+    background-color: #073261;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+}
+
+.close-button:hover {
+    background-color: #0056b3;
+}
+
+.message-text {
+    margin-right: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #073261;
+
+}
+
+/* Estilos para o spinner de carregamento */
+.loading-spinner {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Cinza claro */
+    border-top: 5px solid #073261; /* Azul */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Animação de rotação */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 20px;
+}
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-between;
+    border: 2px solid #073261;
+    border-radius: 10px;
+    padding: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #073261;
+
+}
+.result-row-painel {
+    display: grid;
+    grid-template-columns: 10% 2% 25% 20% 25% 25%;
+    justify-content: space-between;
+    border: 2px solid #073261;
+    border-radius: 10px;
+    padding: 5px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    cursor: pointer; /* Altera o cursor para indicar que o elemento é clicável */
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #073261;
+
+}
+.result-row:hover{
+    background-color: #f0f0f0;
+}
+.result-item {
+    flex: 1;
+}
+.result-data{
+    flex: 1;
+ 
+}
+
+.result-item-name {
+    flex: 2;
+}
+.result-icon{
+    flex: 0;
+}
+
+.result-item-obsercacao{
+    text-align: start;
+    flex: 3;
+
+}
+
+.result-item span {
+    font-weight: 900;
+}
+.sweetalert-font {
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.btn-arredondado {
+    border-radius: 10px; /* Ajusta o raio das bordas dos botões */
+    /* Outros estilos personalizados, se necessário */
+}
+
+.sweetalert-container {
+    border: 2px solid #073261; /* Adiciona uma borda à janela */
+    /* Outros estilos personalizados, se necessário */
+}
+
+#popup-dados-registro {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #073261;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    width: 80%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #073261;
+    
+}
+.popup-content {
+    margin-bottom: 10px;
+}
+.popup-close {
+    margin-left: 95%;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    background-color: #073261;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%; /* para criar um círculo */
+}
+
+.popup-close:hover {
+    background-color: #1565c0; /* cor do círculo ao passar o mouse */
+}
+ /* Estilo para o input de data */
+ #dataInput {
+    margin-top: 20px;
+    margin-bottom: 30px; /* Espaçamento abaixo */
+    margin-left: 55%;
+    left: 50%;
+    border: 2px solid #073261;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #073261;
+}
+#data-input-painel{
+    margin-top: 20px;
+    margin-bottom: 30px; /* Espaçamento abaixo */
+    border: 2px solid #073261;
+    padding: 10px;
+     margin-left: 80%;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    color: #073261;
+}
+.result-item i{
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color:  #073261;
+    font-size: 25px;
+    line-height: 30px;
+
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar (Android only) -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>Resgitra aí Boy - Controle de Registros</title>
+    <!-- Path to Framework7 Library Bundle CSS -->
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <!-- CSS PERSONALIZADO PARA MENU-->
+    <link rel="stylesheet" href="css/personalizado.css">
+    <!--Ícones Material Design-->
+      <!-- Path to Framework7 Library Bundle CSS -->
+  <!--Ícones Material Design-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+   
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://apis.google.com/js/api.js"></script>
+
+</head>
+
+<body>
+    <!-- App root element -->
+    <div id="app">
+
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Initial Page, "data-name" contains page name -->
+            <div data-name="index" class="page color-theme-blue">
+
+                <!-- Top Navbar -->
+                <div class="navbar">
+                    <div class="navbar-bg">
+                        <div class="user-info">
+                            <!-- Substitua 'Nome do Usuário' pelo nome do usuário passado para a página -->
+                          <i id = "icone-user" class="mdi mdi-account"></i>
+                            <span class="username" id="output-username">
+                              <%= login %>
+                            </span>
+                          
+                          </div>
+                    </div>
+                    <div class="navbar-inner justify-content-center">
+                        <div class="title ">Painel de Registros</div>
+                        
+                    </div>
+                   
+                </div>
+               
+                 <!-- Scrollable page content -->
+            <div class="page-content" id = "block-painel-registrados">
+                    <h2 class = "h2-registrados" id = "h2-registrados-registrados">Negociações Registradas</h2>
+                    <input type="date" id="data-input-painel" name="dataInput">
+                    <div id="result-registrados-painel" class="result-container"></div>
+
+            <!-- Elemento de carregamento -->
+            <div id="loading-spinner" class="loading-spinner"></div>
+
+            <div id="custom-message" class="custom-message">
+              <span class="message-text">Negociação Salva com Sucesso!</span>
+               <!-- <button id="close-button" class="close-button">Fechar</button> !-->
+          </div>
+          <div id="custom-message-contrato-nao-localizado" class="custom-message">
+            <span class="message-text">Contrato não Localizado!</span>
+             <!-- <button id="close-button" class="close-button">Fechar</button> !-->
+        
+
+        </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Path to Framework7 Library Bundle JS-->
+  <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>	
+  <!-- Roteamento do app-->
+  <script type="text/javascript" src="js/routes.js"></script>
+  <script type="text/javascript" src="js/home.js"></script>
+  
+   <script>
+        function init(){
+        const spreadsheetId = '1qANHDNI6jSHg5JX1hWzLKqW5I2Hohe792ZNOjhcDOQM';
+        const range = 'A1:W'; // Substitua pelo intervalo de células onde deseja pesquisar
+        function atualizarDataInput(id) {
+            // Obter o elemento de input de data
+            const dataInput = document.getElementById(id);
+            // Criar um objeto de data para a data atual
+            const dataAtual = new Date();
+            // Formatar a data atual no formato YYYY-MM-DD
+            const ano = dataAtual.getFullYear();
+            const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // Adiciona um zero à esquerda se for necessário
+            const dia = String(dataAtual.getDate()).padStart(2, '0'); // Adiciona um zero à esquerda se for necessário
+            const dataFormatada = `${ano}-${mes}-${dia}`;
+          
+            // Definir o valor do input de data como a data formatada
+            dataInput.value = dataFormatada;
+          }
+        const dataInput = document.getElementById('data-input-painel');
+        atualizarDataInput("data-input-painel");
+        // Definir data atual no input de data
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+        const yyyy = today.getFullYear();
+        const dataFormatada = `${dd}/${mm}/${yyyy}`;
+    
+        dataInput.addEventListener('input', function() {
+            const [year, month, day] = this.value.split('-');
+            const dataFormatada =`${day}/${month}/${year}`;
+            searchValueDataPainel(spreadsheetId, range, dataFormatada, (result) => {
+                console.log('Registros encontrados:', result);
+                const resultContainerPainel = document.getElementById('result-registrados-painel');
+                displayResultsDataPainel(resultContainerPainel, result);
+            });
+        });
+        searchValueDataPainel(spreadsheetId, range, dataFormatada, (result) => {
+            console.log('Registros encontrados:', result);
+            const resultContainerPainel = document.getElementById('result-registrados-painel');
+            displayResultsDataPainel(resultContainerPainel, result);
+        });
+    }
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Color theme for statusbar (Android only) -->
+  <meta name="theme-color" content="#2196f3">
+  <!-- Your app title -->
+  <!-- Path to Framework7 Library Bundle CSS -->
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+
+
+  <!-- CSS PERSONALIZADO PARA MENU-->
+  <link rel="stylesheet" href="css/personalizado.css">
+  <!--Ícones Material Design-->
+  <link rel="stylesheet" href="css/materialdesignicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscar Contrato</title>
+  <script src="https://apis.google.com/js/api.js"></script>
+
+  <!-- Your app title -->
+  <title>Resgitra aí Boy - Home</title>
+  <!-- Path to Framework7 Library Bundle CSS -->
+  <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+  <!-- CSS PERSONALIZADO PARA MENU-->
+  <link rel="stylesheet" href="css/personalizado.css">
+  <!--Ícones Material Design-->
+  <link rel="stylesheet" href="css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="css/home.css">
+
+
+</head>
+
+<body>
+
+  <!-- App root element -->
+  <div id="app">
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+      <!-- Initial Page, "data-name" contains page name -->
+      <div data-name="link2" class="page">
+        <!-- Top Navbar -->
+        <div class="navbar">
+          <div class="navbar-bg">
+            <div class="user-info">
+              <!-- Substitua 'Nome do Usuário' pelo nome do usuário passado para a página -->
+              <i id="icone-user" class="mdi mdi-account"></i>
+              <span class="username" id="output-username">
+                <%= login %>
+
+              </span>
+
+            </div>
+          </div>
+          <div class="navbar-inner justify-content-center">
+            <div class="title ">Buscar Contrato</div>
+
+          </div>
+
+        </div>
+
+        <!-- Scrollable page content -->
+        <div class="page-content">
+          <div class="block">
+
+
+            <div class="container-buscar-contrato">
+              <input type="text" id="contractNumber" placeholder="Contrato/CPF">
+              <button id="searchButton">Buscar</button>
+            </div>
+            <div class="container-dados-cliente">
+              <div class="container-contrato">
+                <h4>Contrato:</h4>
+                <div class="rounded-div">
+                  <span id="output-contrato"></span>
+                </div>
+                <h4>Cliente:</h4>
+                <div class="rounded-div">
+                  <span id="output-cliente"></span>
+                </div>
+              </div>
+              <div class="container-nome">
+
+                <h4>Nome:</h4>
+                <div class="rounded-div">
+                  <span id="output-nome"></span>
+                </div>
+
+              </div>
+              <div class="container-endereco">
+                <h4>Endereço:</h4>
+                <div class="rounded-div">
+                  <span id="output-endereco"></span>
+                </div>
+
+              </div>
+              <div class="container-bairro">
+                <h4>Bairro:</h4>
+                <div class="rounded-div">
+                  <span id="output-bairro"></span>
+                </div>
+                <h4>Telefone:</h4>
+                <div class="rounded-div">
+                  <span id="output-telefone"></span>
+                </div>
+              </div>
+              <div class="container-forma-de-pagamento">
+                <h4>F.Pagamento:</h4>
+                <div class="rounded-div">
+                  <span id="output-forma-de-pagamento"></span>
+                </div>
+                <h4>Dt.Ativação:</h4>
+                <div class="rounded-div">
+                  <span id="output-data-ativacao"></span>
+                </div>
+                <h4>Venc.Antigo:</h4>
+                <div class="rounded-div">
+                  <span id="output-venc-antigo"></span>
+                </div>
+
+              </div>
+              <div class="container-debito">
+                <h4>Qt.Parcelas:</h4>
+                <div class="rounded-div">
+                  <span id="output-total-parcelas"></span>
+                </div>
+                <h4>Débito:</h4>
+                <div class="rounded-div">
+                  <span id="output-total-debito"></span>
+                </div>
+
+
+              </div>
+              <br>
+
+            </div>
+            <!-- Elemento de carregamento -->
+            <div id="loading-spinner" class="loading-spinner"></div>
+
+            <div id="custom-message" class="custom-message">
+              <span class="message-text">Registro Salva com Sucesso!</span>
+              <!-- <button id="close-button" class="close-button">Fechar</button> !-->
+            </div>
+            <div id="custom-message-contrato-nao-localizado" class="custom-message">
+              <span class="message-text">Contrato não Localizado!</span>
+              <!-- <button id="close-button" class="close-button">Fechar</button> !-->
+            </div>
+            <div id="cards-container" class="cards-container"></div>
+            <button id="writeButton" onclick="enviarDados()">Gravar na Planilha</button>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner display-flex">
+          <a href="/home" class="tab-link link active">
+            <i class="mdi mdi-border-color"></i>
+            <span>Registrar</span>
+          </a>
+
+          <a href="" class="tab-link link" onclick="redirectToPages('registrados')">
+            <i class="mdi mdi-checkbox-multiple-marked"></i>
+            <span>Registrados</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Path to Framework7 Library Bundle JS-->
+  <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+  <!-- Roteamento do app-->
+  <script type="text/javascript" src="js/routes.js"></script>
+  <script type="text/javascript" src="js/home.js"></script>
+
+</body>
+
+</html>
